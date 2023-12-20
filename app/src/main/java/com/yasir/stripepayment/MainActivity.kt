@@ -2,6 +2,7 @@ package com.yasir.stripepayment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.stripe.android.PaymentConfiguration
@@ -27,7 +28,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         PaymentConfiguration.init(this, PUBLISHABLE_KEY)
+        binding.msge.visibility = View.VISIBLE
         getCustomerId()
+
+    }
+
+    override fun onStart() {
+        super.onStart()
         binding.paymentBtn.setOnClickListener{
             paymentFlow()
         }
@@ -83,6 +90,8 @@ class MainActivity : AppCompatActivity() {
             withContext(Dispatchers.Main){
                 if(res.isSuccessful && res.body()!=null){
                     clientSecret = res.body()!!.client_secret
+                    binding.msge.text = "Proceed Now."
+                    binding.msge.visibility = View.VISIBLE
                     Toast.makeText(this@MainActivity, "Proceed for Payment", Toast.LENGTH_SHORT).show()
                 }
 

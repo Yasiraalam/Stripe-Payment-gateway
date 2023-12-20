@@ -10,9 +10,25 @@
         android:id="@+id/payment_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Payment"
+        android:text="Pay"
+        android:backgroundTint="#2444B6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/msge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please wait..."
+        android:visibility="gone"
+        android:textColor="#B10A61"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/payment_btn"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="@+id/payment_btn"
+        app:layout_constraintTop_toBottomOf="@id/payment_btn"
+        app:layout_constraintVertical_bias="0.187" />
 </androidx.constraintlayout.widget.ConstraintLayout>
